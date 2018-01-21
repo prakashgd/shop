@@ -6,6 +6,4 @@ export interface Woocommerce {
   url: any;
   images: any;
   src: any;
-  // response: any = [ ];
 }
-

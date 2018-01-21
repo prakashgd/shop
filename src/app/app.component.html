@@ -1,2 +1,38 @@
 
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list (click)="sidenav.close()">
+      <!--<span *ngFor="let item of routers">-->
+      <!--<a mat-list-item  [routerLink] = "['item.link']">{{item.link}}</a>-->
+      <!--</span>-->
+        <a mat-list-item (click)="navigation('Home','/')"  > Home</a>
+        <a mat-list-item (click)="navigation('Products','/products')"  > Products</a>
+        <a mat-list-item (click)="navigation('Orders', '/orders')"  > Orders</a>
+
+      <!-- <a mat-list-item [routerLink]="['/'] "  > Home</a>
+      <a mat-list-item [routerLink]="['/products']"  > Products</a>
+      <a mat-list-item [routerLink]="['/orders']" > Orders</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="page-wrap">
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <button type="button" mat-icon-button
+                  (click)="sidenav.open()"
+                  title="Menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span #label >{{toolbar_name}}</span>
+          <span class="spacer"></span>
+          <button type="button" mat-icon-button>
+          <mat-icon class="icon">search</mat-icon></button>
+          <button type="button" mat-icon-button>
+          <mat-icon class="icon">shopping_cart</mat-icon></button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+
+
